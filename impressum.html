@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum & Datenschutz — Tamosique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0f0e0b;
+      --teal: #3d7f8a;
+      --dark: #4a919c;
+      --gold: #d2ad67;
+      --cream: #faf7f2;
+      --muted: #1c1a16;
+      --border: rgba(210, 173, 103, 0.25);
+      --text-dim: rgba(250, 247, 242, 0.55);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+      background: rgba(15, 14, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--cream);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .back-link {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      padding: 160px 48px 80px;
+      border-bottom: 0.5px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      color: var(--text-dim);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    /* TABS */
+    .tab-nav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 20px 32px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: color 0.3s, border-color 0.3s;
+      margin-bottom: -0.5px;
+    }
+
+    .tab-btn.active {
+      color: var(--cream);
+      border-bottom-color: var(--gold);
+    }
+
+    .tab-btn:hover { color: var(--cream); }
+
+    /* CONTENT */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 48px 120px;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    h3:first-child { margin-top: 0; }
+
+    p {
+      color: rgba(250, 247, 242, 0.75);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover { color: var(--gold); }
+
+    .info-block {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid var(--border);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    .info-block p {
+      margin-bottom: 4px;
+    }
+
+    .highlight {
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 40px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 120px 24px 60px; }
+      .tab-nav { padding: 0 24px; overflow-x: auto; }
+      .tab-btn { padding: 16px 20px 14px; }
+      .content { padding: 48px 24px 80px; }
+      footer { padding: 32px 24px; }
+      .info-block { padding: 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.tamosique.de" class="logo">Tamo<span>sique</span></a>
+  <a href="https://www.tamosique.de" class="back-link">&#8592; Zurück zur Website</a>
+</nav>
+
+<div class="hero">
+  <p class="page-eyebrow">Rechtliche Hinweise</p>
+  <h1>Impressum &amp;<br>Datenschutz</h1>
+  <p class="hero-sub">tamosique.de — Tanja Nadine Moser</p>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('impressum', this)">Impressum</button>
+  <button class="tab-btn" onclick="switchTab('datenschutz', this)">Datenschutzerklärung</button>
+</div>
+
+<div class="content">
+
+  <!-- ===================== IMPRESSUM ===================== -->
+  <div class="tab-panel active" id="tab-impressum">
+
+    <div class="section">
+      <h2>Angaben gemäß §5 TMG</h2>
+      <div class="info-block">
+        <p><span class="highlight">Tanja Nadine Moser</span></p>
+        <p>Tamosique</p>
+        <p>Heinrich-Zille-Straße 7</p>
+        <p>70794 Filderstadt</p>
+        <p>Deutschland</p>
+      </div>
+      <h3>Kontakt</h3>
+      <p>Telefon: +49 178 625 90 97</p>
+      <p>E-Mail: <a href="mailto:tamosique@moc-media.de">tamosique@moc-media.de</a></p>
+      <p>Website: <a href="https://www.tamosique.de">www.tamosique.de</a></p>
+    </div>
+
+    <div class="section">
+      <h2>Steuerliche Angaben</h2>
+      <p>Steuernummer: 97071/47810</p>
+      <p>Zuständiges Finanzamt: Finanzamt Stuttgart III</p>
+      <p>Gemäß §19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</p>
+    </div>
+
+    <div class="section">
+      <h2>Verantwortlich für den Inhalt</h2>
+      <p>Gemäß §55 Abs. 2 RStV:</p>
+      <div class="info-block">
+        <p><span class="highlight">Tanja Nadine Moser</span></p>
+        <p>Heinrich-Zille-Straße 7, 70794 Filderstadt</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Streitschlichtung</h2>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:<br>
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
+      <p>Ich bin nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    </div>
+
+    <div class="section">
+      <h2>Haftung für Inhalte</h2>
+      <p>Als Dienstanbieterin bin ich gemäß §7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 TMG bin ich als Dienstanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.</p>
+    </div>
+
+    <div class="section">
+      <h2>Haftung für Links</h2>
+      <p>Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      <p>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.</p>
+    </div>
+
+    <div class="section">
+      <h2>Urheberrecht</h2>
+      <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+    </div>
+
+  </div>
+
+  <!-- ===================== DATENSCHUTZ ===================== -->
+  <div class="tab-panel" id="tab-datenschutz">
+
+    <div class="section">
+      <h2>Datenschutzerklärung</h2>
+      <p>Diese Datenschutzerklärung klärt über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten innerhalb meines Onlineangebotes auf. Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst.</p>
+    </div>
+
+    <div class="section">
+      <h2>1. Verantwortliche Stelle</h2>
+      <div class="info-block">
+        <p><span class="highlight">Tanja Nadine Moser</span></p>
+        <p>Tamosique</p>
+        <p>Heinrich-Zille-Straße 7, 70794 Filderstadt</p>
+        <p>E-Mail: <a href="mailto:tamosique@moc-media.de">tamosique@moc-media.de</a></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Hosting über Canva</h2>
+      <p>Diese Website wird über Canva Websites betrieben. Anbieter ist Canva Pty Ltd, Level 1, 110 Kippax St, Surry Hills NSW 2010, Australien.</p>
+      <p>Bei Aufruf der Seite können durch Canva automatisch technische Daten (IP-Adresse, Datum, Uhrzeit etc.) verarbeitet und gespeichert werden.</p>
+      <p>Weitere Informationen: <a href="https://www.canva.com/policies/privacy-policy/" target="_blank" rel="noopener">https://www.canva.com/policies/privacy-policy/</a></p>
+    </div>
+
+    <div class="section">
+      <h2>3. Zugriffsdaten und Server-Logfiles</h2>
+      <p>Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Anbieter erfasst (sogenannte Server-Logfiles), darunter:</p>
+      <div class="info-block">
+        <p>— Besuchte Website</p>
+        <p>— Datum und Uhrzeit des Zugriffs</p>
+        <p>— Menge der gesendeten Daten</p>
+        <p>— Quelle / Verweis (Referrer)</p>
+        <p>— Verwendeter Browser und Betriebssystem</p>
+        <p>— Verwendete IP-Adresse</p>
+      </div>
+      <p>Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am ordnungsgemäßen Betrieb der Website).</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Digitale Produkte &amp; Zahlungsabwicklung</h2>
+      <p>Digitale Produkte (z.B. der Tamosique Creator Guide) werden über <span class="highlight">Digistore24</span> vertrieben. Anbieter ist Digistore24 GmbH, St.-Kilian-Straße 10, 04916 Herzberg (Elster), Deutschland.</p>
+      <p>Im Rahmen des Kaufprozesses werden Daten (Name, E-Mail-Adresse, Zahlungsdaten) direkt an Digistore24 übermittelt und durch Digistore24 gemäß deren Datenschutzrichtlinien verarbeitet.</p>
+      <p>Weitere Informationen: <a href="https://www.digistore24.com/page/privacy" target="_blank" rel="noopener">https://www.digistore24.com/page/privacy</a></p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</p>
+    </div>
+
+    <div class="section">
+      <h2>5. E-Mail-Marketing (ActiveCampaign)</h2>
+      <p>Ich nutze ggf. ActiveCampaign für den Versand von E-Mails und Newsletter-Kommunikation. Anbieter ist ActiveCampaign, LLC, 1 N Dearborn St, Chicago, IL 60602, USA.</p>
+      <p>Wenn du dich für meine E-Mail-Liste einträgst, werden deine Daten (Name, E-Mail-Adresse) an ActiveCampaign übermittelt und dort gespeichert. Die Übermittlung erfolgt auf Basis von Standardvertragsklauseln gemäß Art. 46 DSGVO.</p>
+      <p>Du kannst dich jederzeit aus dem E-Mail-Verteiler austragen. Einen entsprechenden Link findest du am Ende jeder E-Mail.</p>
+      <p>Weitere Informationen: <a href="https://www.activecampaign.com/privacy-policy/" target="_blank" rel="noopener">https://www.activecampaign.com/privacy-policy/</a></p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+    </div>
+
+    <div class="section">
+      <h2>6. ManyChat</h2>
+      <p>Auf Instagram nutze ich ggf. ManyChat zur automatisierten Kommunikation via Instagram Direct Messages. Anbieter ist ManyChat Inc., 4804 Laurel Canyon Blvd #1029, Valley Village, CA 91607, USA.</p>
+      <p>Wenn du mit meinem ManyChat-Bot interagierst, werden dabei Daten (Instagram-Nutzername, Gesprächsinhalte) verarbeitet. Die Übermittlung erfolgt auf Basis von Standardvertragsklauseln.</p>
+      <p>Weitere Informationen: <a href="https://manychat.com/privacy" target="_blank" rel="noopener">https://manychat.com/privacy</a></p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Interaktion).</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Pinterest</h2>
+      <p>Ich nutze Pinterest als Traffic-Quelle. Anbieter ist Pinterest Europe Ltd., Palmerston House, 2nd Floor, Fenian Street, Dublin 2, Irland.</p>
+      <p>Beim Aufruf von Inhalten, die über Pinterest verlinkt werden, können durch Pinterest Daten verarbeitet werden. Weitere Informationen: <a href="https://policy.pinterest.com/de/privacy-policy" target="_blank" rel="noopener">https://policy.pinterest.com/de/privacy-policy</a></p>
+    </div>
+
+    <div class="section">
+      <h2>8. Cookies &amp; Tracking</h2>
+      <p>Ich setze selbst keine eigenen Tracking-Cookies ein. Drittanbieter wie Canva können im Rahmen ihrer Dienste technisch notwendige oder analytische Cookies verwenden. Weitere Details findest du in den Datenschutzrichtlinien der jeweiligen Anbieter.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Kontaktaufnahme</h2>
+      <p>Wenn du mir per E-Mail oder über Instagram schreibst, werden deine Angaben (Name, E-Mail-Adresse, Nachrichteninhalt) zwecks Bearbeitung deiner Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. Diese Daten gebe ich nicht ohne deine Einwilligung weiter.</p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen).</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Deine Rechte</h2>
+      <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner personenbezogenen Daten. Außerdem hast du das Recht auf Datenübertragbarkeit sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>
+      <div class="info-block">
+        <p><span class="highlight">Zuständige Aufsichtsbehörde:</span></p>
+        <p>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</p>
+        <p>Lautenschlagerstraße 20, 70173 Stuttgart</p>
+        <p><a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener">www.baden-wuerttemberg.datenschutz.de</a></p>
+      </div>
+      <p>Um deine Rechte geltend zu machen, wende dich an: <a href="mailto:tamosique@moc-media.de">tamosique@moc-media.de</a></p>
+    </div>
+
+    <div class="section">
+      <h2>11. Löschung von Daten</h2>
+      <p>Deine personenbezogenen Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+    </div>
+
+    <div class="section">
+      <h2>12. Änderungen dieser Datenschutzerklärung</h2>
+      <p>Ich behalte mir vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder Änderungen meiner Dienste anzupassen. Es gilt jeweils die aktuelle Version auf dieser Seite.</p>
+      <p>Stand: Juni 2026</p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-logo">Tamosique</span>
+  <span class="footer-copy">&copy; 2026 Tanja Nadine Moser · tamosique.de</span>
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
