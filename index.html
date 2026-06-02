@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Things I Use & Love — tamosique</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #3d7f8a;
+  --dark: #4a919c;
+  --dark2: #5299a3;
+  --dark3: #5ea3ad;
+  --gold: #d2ad67;
+  --gold-dim: rgba(210,173,103,0.15);
+  --gold-line: rgba(210,173,103,0.3);
+  --cream: #ffffff;
+  --cream-dim: rgba(255,255,255,0.75);
+  --muted: rgba(255,255,255,0.75);
+  --faint: rgba(255,255,255,0.15);
+  --teal: #7db3bc;
+  --teal-dim: rgba(125,179,188,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--black);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(61,127,138,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--faint);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: #ffffff; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(125,179,188,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 2rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  line-height: 2.2;
+  max-width: 420px;
+  margin: 0 auto 3rem;
+}
+
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.scroll-line {
+  width: 0.5px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ── SOCIALS BAR ── */
+.socials-bar {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-top: 0.5px solid var(--faint);
+  border-bottom: 0.5px solid var(--faint);
+  margin: 0;
+  background: var(--dark2);
+}
+
+.social-link {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-link:hover { color: #ffffff; }
+
+.social-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  padding: 6rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.5px solid var(--faint);
+}
+
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 300;
+  color: var(--faint);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.section-meta {
+  flex: 1;
+}
+
+.section-label {
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.section-desc {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 2;
+  letter-spacing: 0.05em;
+  max-width: 480px;
+  margin-top: 0.75rem;
+}
+
+/* ── PRODUCT GRID ── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5px;
+}
+
+.product-card {
+  background: var(--dark2);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-line), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.product-card:hover {
+  background: var(--dark3);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-name {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.product-desc {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 0.5px solid var(--gold-line);
+  transition: border-color 0.2s, gap 0.2s;
+  align-self: flex-start;
+}
+
+.product-link:hover {
+  border-color: var(--gold);
+  gap: 14px;
+}
+
+.product-link::after {
+  content: '→';
+  font-size: 11px;
+}
+
+/* ── SERVICES SECTION ── */
+.services-section {
+  background: var(--dark2);
+  border-top: 0.5px solid var(--faint);
+  border-bottom: 0.5px solid var(--faint);
+  padding: 5rem 3rem;
+}
+
+.services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-header {
+  margin-bottom: 3rem;
+}
+
+.services-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.services-sub {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  line-height: 2;
+  max-width: 560px;
+  margin-top: 1rem;
+}
+
+.services-sub strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  margin-top: 2rem;
+}
+
+.service-item {
+  background: rgba(0,0,0,0.2);
+  border: 0.5px solid rgba(255,255,255,0.25);
+  padding: 2rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+
+.service-item:hover { background: rgba(0,0,0,0.25); }
+
+.service-name {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.service-arrow {
+  font-size: 14px;
+  color: var(--gold);
+  transition: transform 0.2s;
+}
+
+.service-item:hover .service-arrow { transform: translateX(4px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--faint);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+  text-transform: lowercase;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-links a {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--faint);
+  margin: 0;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow { animation: fadeUp 0.8s ease both; animation-delay: 0.1s; }
+.hero-title { animation: fadeUp 0.8s ease both; animation-delay: 0.25s; }
+.hero-sub { animation: fadeUp 0.8s ease both; animation-delay: 0.4s; }
+.hero-scroll { animation: fadeUp 0.8s ease both; animation-delay: 0.6s; }
+
+/* ── MOBILE ── */
+@media (max-width: 700px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .section { padding: 4rem 1.5rem; }
+  .section-title { font-size: 2rem; }
+  .section-num { font-size: 3rem; }
+  .hero-title { font-size: 3rem; }
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+  .services-section { padding: 4rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+  .socials-bar { flex-wrap: wrap; gap: 1.5rem; }
+}
+
+@media (max-width: 440px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">tamosique</a>
+  <ul class="nav-links">
+    <li><a href="#creator">Creator</a></li>
+    <li><a href="#dog">Dog Life</a></li>
+    <li><a href="#beauty">Beauty</a></li>
+    <li><a href="#style">Style</a></li>
+    <li><a href="#services">Work with me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">tamosique · Côte d'Azur</p>
+  <h1 class="hero-title">Things I<br><em>Use & Love</em></h1>
+  <p class="hero-sub">Chosen. Tested. Loved.<br>Alles was ich wirklich nutze — direkt verlinkt, ohne Blabla.</p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SOCIALS -->
+<div class="socials-bar">
+  <a href="https://www.instagram.com/tamosique/" target="_blank" class="social-link">
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    Instagram
+  </a>
+  <a href="https://www.tiktok.com/@tamosique" target="_blank" class="social-link">
+    <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.22 8.22 0 004.8 1.54V6.78a4.85 4.85 0 01-1.03-.09z"/></svg>
+    TikTok
+  </a>
+  <a href="https://www.youtube.com/@tamosique" target="_blank" class="social-link">
+    <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    YouTube
+  </a>
+  <a href="mailto:tamosique@moc-media.de" class="social-link">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    Contact
+  </a>
+</div>
+
+<!-- ── 01 CREATOR THINGS ── -->
+<section class="section" id="creator">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <div class="section-meta">
+      <p class="section-label">Tech · Tools · Gadgets</p>
+      <h2 class="section-title">Creator Things</h2>
+      <p class="section-desc">Tech, Tools & Tricks, die mein Creator-Life einfacher machen — vom perfekten Licht bis zur besten Planer-App. Alles getestet & geliebt.</p>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/sony-alpha-6400.png.png" alt="Sony Alpha 6400" class="product-img" loading="lazy">
+      <p class="product-name">Sony Alpha 6400</p>
+      <p class="product-desc">Meine Go-To Kamera für Content in Pro-Qualität. Superleicht, brutalen Autofokus, gestochen scharfe 4K-Videos. Der klappbare Screen — Life Saver für Solo-Shoots.</p>
+      <a href="https://amzn.to/4nKTTNY" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/kameratasche-sony-alpha.png.png" alt="Kameratasche Sony Alpha" class="product-img" loading="lazy">
+      <p class="product-name">Kameratasche Sony Alpha</p>
+      <p class="product-desc">Stylischer Schutz für deine Sony Alpha. Formstabil, kompakt und elegant — damit deine Kamera immer sicher und ready-to-go ist.</p>
+      <a href="https://amzn.to/4nPMMDT" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/ringlicht-mini.png.png" alt="Ringlicht (Mini)" class="product-img" loading="lazy">
+      <p class="product-name">Ringlicht (Mini)</p>
+      <p class="product-desc">Klein, flexibel, hell. Ideal für Handyaufnahmen, Zoom-Calls oder Laptop-Setups — perfekt zum Mitnehmen.</p>
+      <a href="https://amzn.to/43ZaczA" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/3screen-setup.png.png" alt="3-Screen Mobile Setup" class="product-img" loading="lazy">
+      <p class="product-name">3-Screen Mobile Setup</p>
+      <p class="product-desc">Dein mobiles 3-Screen-Setup. Erweitere deinen Workflow mit zwei zusätzlichen Bildschirmen — perfekt für Multitasking unterwegs.</p>
+      <a href="https://amzn.to/48iRzrZ" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/stativ-multifunktional.png.png" alt="Stativ (Multifunktional)" class="product-img" loading="lazy">
+      <p class="product-name">Stativ (Multifunktional)</p>
+      <p class="product-desc">Stabil, verstellbar, multifunktional. Ob für Kamera oder Smartphone — dieses Stativ bringt Struktur in dein Shooting.</p>
+      <a href="https://amzn.to/3LAU0hQ" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/handy-stativ-360.png.png" alt="Handy Stativ (360°)" class="product-img" loading="lazy">
+      <p class="product-name">Handy Stativ (360°)</p>
+      <p class="product-desc">Kompakt, flexibel, unverzichtbar. 360° Pocket-Tripod für Smartphone & Kamera — perfekt für Reels, Selfies, Travel Shots. Kabellose Fernbedienung inklusive.</p>
+      <a href="https://amzn.to/4o1wOqy" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/gopro-hero9.png.png" alt="GoPro HERO9" class="product-img" loading="lazy">
+      <p class="product-name">GoPro HERO9</p>
+      <p class="product-desc">Wasserdicht, robust, bereit für jedes Abenteuer. Gestochen scharfe 5K-Videos, 20MP Fotos, zuverlässige Stabilisierung — für Travel-Vlogs und Content on the go.</p>
+      <a href="https://amzn.to/4o1wOqy" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/kabelloses-mikrofon.png.png" alt="Kabelloses Mikrofon" class="product-img" loading="lazy">
+      <p class="product-name">Kabelloses Mikrofon</p>
+      <p class="product-desc">Kristallklarer Sound für unterwegs. Egal ob iPhone, Android, Kamera oder Laptop — Mini-Ansteckmikro für professionellen Ton bei Interviews, Reels und Livestreams.</p>
+      <a href="https://amzn.to/4nYIytQ" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/dji-mavic-air2.png.png" alt="DJI Mavic Air 2" class="product-img" loading="lazy">
+      <p class="product-name">DJI Mavic Air 2</p>
+      <p class="product-desc">4K Ultra HD, 48MP Fotos, bis zu 34 Minuten Flugzeit. Dank ActiveTrack 3.0 & Gimbal-Stabilisierung ideal für cinematische Aufnahmen aus der Luft.</p>
+      <a href="https://amzn.to/3LHcgpI" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/studio-to-go-kit.png.png" alt="Studio-to-go Kit" class="product-img" loading="lazy">
+      <p class="product-name">Studio-to-go Kit</p>
+      <p class="product-desc">Dein komplettes mobiles Studio-Setup. Alles was du brauchst, um überall professionellen Content zu produzieren.</p>
+      <a href="https://amzn.to/4pany4m" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/fettleder-kurzleine.png.png" alt="Fettleder Kurzleine" class="product-img" loading="lazy">
+      <p class="product-name">Fettleder Kurzleine</p>
+      <p class="product-desc">Edle Kurzleine aus robustem Rindsleder mit Messing — handgefertigt, kompakt und griffig.</p>
+      <a href="https://amzn.to/49cXAsa" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── 02 DOG MOM LIFE ── -->
+<section class="section" id="dog">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <div class="section-meta">
+      <p class="section-label">Hunde · Outdoor · Côte d'Azur</p>
+      <h2 class="section-title">Dog Mom Life</h2>
+      <p class="section-desc">Ob Gassi-Gear, Reise-Must-haves oder Tools für entspannte Office-Days mit Hund — Stil, Funktion & Alltagstauglichkeit perfekt verbunden.</p>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/geschirr-tbone.png.png" alt="T-Bone Hundegeschirr" class="product-img" loading="lazy">
+      <p class="product-name">T-Bone Hundegeschirr</p>
+      <p class="product-desc">Taktisches Brustgeschirr mit 2 Griffen — ausbruchsicher, einstellbar, ideal für Training & Outdoor.</p>
+      <a href="https://amzn.to/3X9NQaX" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/geschirr-fire-watcher.png.png" alt="FIRE WATCHER Sicherheitsgeschirr" class="product-img" loading="lazy">
+      <p class="product-name">FIRE WATCHER Sicherheitsgeschirr</p>
+      <p class="product-desc">Robustes Hundegeschirr mit 2 D-Ringen & Griff — aus strapazierfähigem 1000D Nylon.</p>
+      <a href="https://amzn.to/3M4GLGd" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/hundenapf-faltbar.png.png" alt="Faltbare Hundenäpfe (2-in-1)" class="product-img" loading="lazy">
+      <p class="product-name">Faltbare Hundenäpfe (2-in-1)</p>
+      <p class="product-desc">Reisenapf-Set aus lebensmittelechtem Silikon — platzsparend, leicht & inkl. Reiseetui.</p>
+      <a href="https://amzn.to/43w52uR" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/fettleder-kurzfuehrer.png.png" alt="Fettleder Kurzführer" class="product-img" loading="lazy">
+      <p class="product-name">Fettleder Kurzführer</p>
+      <p class="product-desc">Edle Kurzleine aus robustem Rindsleder mit Messing — handgefertigt, kompakt und griffig.</p>
+      <a href="https://amzn.to/3KkTgwU" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/hunde-rettungsweste.png.png" alt="Premium Hunde-Rettungsweste" class="product-img" loading="lazy">
+      <p class="product-name">Premium Hunde-Rettungsweste</p>
+      <p class="product-desc">Premium Hunde-Rettungsweste mit Reflektoren & Griff. Für alle Abenteuer am und im Wasser.</p>
+      <a href="https://amzn.to/49o8awF" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/hundekaeig-holz-stahl.png.png" alt="Hundekäfig Möbelstück" class="product-img" loading="lazy">
+      <p class="product-name">Hundekäfig Möbelstück</p>
+      <p class="product-desc">Hundebox aus Holz & Stahl mit Schiebetüren — stabil, wohnlich und ein echtes Designstück für dein Zuhause.</p>
+      <a href="https://amzn.to/3Xf6CxD" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/bandana-paisley.png.png" alt="Bandana Paisley-Print" class="product-img" loading="lazy">
+      <p class="product-name">Bandana Paisley-Print</p>
+      <p class="product-desc">Western-Flair meets urban Coolness. Atmungsaktiv, schnell-trocknend und vielseitig — als Headband, Halstuch oder Dogwalk-Accessoire.</p>
+      <a href="https://amzn.to/4q4Jw9t" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── 03 BEAUTY & BALANCE ── -->
+<section class="section" id="beauty">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <div class="section-meta">
+      <p class="section-label">Skincare · Wellness · Ritual</p>
+      <h2 class="section-title">Beauty & Balance</h2>
+      <p class="section-desc">Keine Zeit für große Beauty-Rituale? Meine Essentials helfen, in der Balance zu bleiben — innerlich wie äußerlich. Tools, die funktionieren.</p>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/jade-roller-gua-sha.png.png" alt="Jade Roller & Gua Sha" class="product-img" loading="lazy">
+      <p class="product-name">Jade Roller & Gua Sha</p>
+      <p class="product-desc">Fördert die Durchblutung, reduziert Falten, strafft und entspannt. Jadestein — bekannt für seine ausgleichende Wirkung auf Haut und Energie.</p>
+      <a href="https://amzn.to/3KkTgwU" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/gesichtsmassagegeraet.png.png" alt="Gesichtsmassagegerät" class="product-img" loading="lazy">
+      <p class="product-name">Gesichtsmassagegerät</p>
+      <p class="product-desc">Hilft, Verspannungen zu lösen, die Durchblutung zu fördern und dem Gesicht sichtbar mehr Kontur zu verleihen.</p>
+      <a href="https://amzn.to/49eRh7v" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/augenmasken-hyaluron.png.png" alt="Augenmasken (Hyaluronsäure)" class="product-img" loading="lazy">
+      <p class="product-name">Augenmasken (Hyaluronsäure)</p>
+      <p class="product-desc">Hochwirksame Augenmasken mit Hyaluronsäure und Kollagen. Spenden intensiv Feuchtigkeit, glätten kleine Fältchen und sorgen für einen frischen, wachen Blick.</p>
+      <a href="https://amzn.to/4hTGnX0" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/ginseng-kapseln.png.png" alt="Ginseng Kapseln" class="product-img" loading="lazy">
+      <p class="product-name">Ginseng Kapseln</p>
+      <p class="product-desc">Mehr Energie, mehr Fokus — vegane Kapseln mit hochdosiertem Ginseng-Extrakt. Unterstützen mentale & körperliche Performance auf natürliche Weise.</p>
+      <a href="https://amzn.to/3LBtyVf" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/stichheiler.png.png" alt="Stichheiler" class="product-img" loading="lazy">
+      <p class="product-name">Stichheiler</p>
+      <p class="product-desc">Sag Juckreiz adieu. Der chemiefreie Stichheiler lindert Insektenstiche zuverlässig mit Wärme und Licht — ideal auch bei Nacht.</p>
+      <a href="https://amzn.to/4i4wVQO" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/badezusatz.png.png" alt="Badezusatz" class="product-img" loading="lazy">
+      <p class="product-name">Badezusatz</p>
+      <p class="product-desc">Tauche ein in pure Entspannung — luxuriöser Badezusatz mit Kamillenextrakt und Nachtkerzenöl. Beruhigt deinen Geist und verwöhnt deine Haut.</p>
+      <a href="https://amzn.to/4831suY" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/roxy-badeanzug.png.png" alt="Roxy Badeanzug" class="product-img" loading="lazy">
+      <p class="product-name">Roxy Badeanzug</p>
+      <p class="product-desc">Athletic Triangle Fit mit verstellbaren Trägern und recyceltem, chlorresistentem Stretch-Stoff. Für aktive Tage am Wasser.</p>
+      <a href="https://amzn.to/4hR53zt" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/lipstick-chanel-rouge-coco.png.png" alt="Lipstick Chanel Rouge Coco" class="product-img" loading="lazy">
+      <p class="product-name">Lipstick Chanel Rouge Coco</p>
+      <p class="product-desc">Der Rouge Coco bringt Farbe, Eleganz und ein Hauch Old Money in deinen Daily Look.</p>
+      <a href="https://amzn.to/4rGD3TN" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/parfum-crystal-noir-versace.png.png" alt="Parfum Crystal Noir – Versace" class="product-img" loading="lazy">
+      <p class="product-name">Parfum Crystal Noir – Versace</p>
+      <p class="product-desc">Intensiv, sinnlich und markant — dieser Duft hinterlässt Eindruck, ohne laut zu sein. Perfekt für Wintermomente und Signature-Vibes.</p>
+      <a href="https://amzn.to/4izaPGb" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── 04 STYLE & EVERYDAY ── -->
+<section class="section" id="style">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <div class="section-meta">
+      <p class="section-label">Fashion · Accessoires · Everyday</p>
+      <h2 class="section-title">Style & Everyday</h2>
+      <p class="section-desc">Weil's funktioniert. Weil's bequem ist. Und weil du hier nicht nur Fashion siehst — sondern Looks, die mit dem Leben mithalten.</p>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/bandana-vinuwu.png.png" alt="Bandana Vinuwu" class="product-img" loading="lazy">
+      <p class="product-name">Bandana Vinuwu</p>
+      <p class="product-desc">Western-Flair meets urban Coolness. Atmungsaktiv, schnell-trocknend, vielseitig tragbar — als Headband, Halstuch oder Dogwalk-Accessoire.</p>
+      <a href="https://amzn.to/4q4Jw9t" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/sports-leggings-yeoreo.png.png" alt="Sports Leggings YEOREO" class="product-img" loading="lazy">
+      <p class="product-name">Sports Leggings YEOREO</p>
+      <p class="product-desc">Sitzt wie angegossen — bei Sport & Alltag. Hochwertige Sportleggings mit Support für alle Light-Impact Moves.</p>
+      <a href="https://amzn.to/4q61Rmu" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/merinoschal-nytted.png.png" alt="Merinoschal NYTTED" class="product-img" loading="lazy">
+      <p class="product-name">Merinoschal NYTTED</p>
+      <p class="product-desc">Dieser schwarze Schal ist ein hochwertiges Essential und gehört in jeden Kleiderschrank.</p>
+      <a href="https://amzn.to/48Cb0gs" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/flared-leggings.png.png" alt="Flared Leggings High-Waist" class="product-img" loading="lazy">
+      <p class="product-name">Flared Leggings High-Waist</p>
+      <p class="product-desc">Curve Game. Weicher, leichter Stoff trifft auf eine Figur, die sich sehen lassen kann — comfy enough fürs Workout, stylish genug für den Streetstyle.</p>
+      <a href="https://amzn.to/4omwp21" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/cap-fiddler-brixton.png.png" alt="Fiddler Cap von Brixton" class="product-img" loading="lazy">
+      <p class="product-name">Fiddler Cap von Brixton</p>
+      <p class="product-desc">Die klassische Zeitungskappe verpasst jedem Look französischen Flair — minimalistisch und markant.</p>
+      <a href="https://amzn.to/4oJXfSF" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/nike-leggings.png.png" alt="Nike Leggings" class="product-img" loading="lazy">
+      <p class="product-name">Nike Leggings</p>
+      <p class="product-desc">Der Klassiker, der immer geht.</p>
+      <a href="https://amzn.to/4psREjv" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/3er-pack-langarmshirt.png.png" alt="3er Pack Langarmshirt schwarz" class="product-img" loading="lazy">
+      <p class="product-name">3er Pack Langarmshirt schwarz</p>
+      <p class="product-desc">Ein zeitloses Basic, das in keinem Kleiderschrank fehlen darf. Figurbetontes Longsleeve — ob casual oder layered gestylt.</p>
+      <a href="https://amzn.to/3XSRlTk" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/kopfhoerer-soundcore.png.png" alt="Kopfhörer soundcore" class="product-img" loading="lazy">
+      <p class="product-name">Kopfhörer soundcore</p>
+      <p class="product-desc">Noise Cancelling, bis zu 40h Akku. Ideal für fokussiertes Arbeiten, Reisen und lange Shooting-Tage.</p>
+      <a href="https://amzn.to/3XSGgli" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/creolen-liebeskind.png.png" alt="LIEBESKIND BERLIN Creolen" class="product-img" loading="lazy">
+      <p class="product-name">LIEBESKIND BERLIN Creolen</p>
+      <p class="product-desc">Geometrische Creolen aus vergoldetem Edelstahl — minimal, bold und everyday-tauglich.</p>
+      <a href="https://amzn.to/4rXOAOE" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/lysandra-ohrringe.png.png" alt="Lysandra Ohrringe" class="product-img" loading="lazy">
+      <p class="product-name">Lysandra Ohrringe</p>
+      <p class="product-desc">Hängende Statement-Ohrringe — für alle, die bei Accessoires auf Glanz, Komfort und ein bisschen Wow stehen.</p>
+      <a href="https://amzn.to/4p0Zgtk" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/cateye-sonnenbrille.png.png" alt="Cateye Sonnenbrille Vintage" class="product-img" loading="lazy">
+      <p class="product-name">Cateye Sonnenbrille Vintage</p>
+      <p class="product-desc">Vintage-inspiriertes Design mit eckiger Fassung und UV-Protection — leicht, langlebig und das perfekte Accessoire für helle Tage.</p>
+      <a href="https://amzn.to/49mMK2h" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/sonnenbrille-kunchu.png.png" alt="Sonnenbrille von Kunchu" class="product-img" loading="lazy">
+      <p class="product-name">Sonnenbrille von Kunchu</p>
+      <p class="product-desc">Stylisch, leicht und mit UV-Schutz — dein Everyday-Essential.</p>
+      <a href="https://amzn.to/49RidKG" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/creolen-purelei-kelani.png.png" alt="Purelei Kelani Creolen" class="product-img" loading="lazy">
+      <p class="product-name">Purelei Kelani Creolen</p>
+      <p class="product-desc">Goldene Creolen — simple & bold. Minimalistisch, feminin & nachhaltig.</p>
+      <a href="https://amzn.to/4rj6HOp" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/joop-uhr.png.png" alt="JOOP! Uhr" class="product-img" loading="lazy">
+      <p class="product-name">JOOP! Uhr</p>
+      <p class="product-desc">Die JOOP!-Uhr kombiniert Minimalismus mit Präsenz — ein Piece für jeden Tag.</p>
+      <a href="https://amzn.to/48oYGiw" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/stiefelette-caprice.png.png" alt="Stiefelette CAPRICE" class="product-img" loading="lazy">
+      <p class="product-name">Stiefelette CAPRICE</p>
+      <p class="product-desc">Diese Boots tragen dich easy durch deinen Creator-Alltag — von Shootings bis City-Trips.</p>
+      <a href="https://amzn.to/44tkrMP" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/blazer-the-drop.png.png" alt="Schwarzer Blazer The Drop" class="product-img" loading="lazy">
+      <p class="product-name">Schwarzer Blazer The Drop</p>
+      <p class="product-desc">Strukturiert, lässig, on point. Business-Coolness für den Alltagslook — passt zu Leo-Rock, Denim oder Kleid.</p>
+      <a href="https://amzn.to/3XjSYJC" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/karl-kani-hoodie.png.png" alt="Karl Kani Signature Hoodie" class="product-img" loading="lazy">
+      <p class="product-name">Karl Kani Signature Hoodie</p>
+      <p class="product-desc">Cosy & oversized — mein Alltags-Favorit.</p>
+      <a href="https://amzn.to/4nGrskl" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/nike-socken.png.png" alt="Nike Socken (6 Paar)" class="product-img" loading="lazy">
+      <p class="product-name">Nike Socken (6 Paar)</p>
+      <p class="product-desc">Kaum sichtbar. Bequem. Nike.</p>
+      <a href="https://amzn.to/49aJnvM" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/roxy-boardshort.png.png" alt="Roxy Boardshort" class="product-img" loading="lazy">
+      <p class="product-name">Roxy Boardshort</p>
+      <p class="product-desc">Für aktive Tage am Wasser. Recycelter Stoff, chlorresistent — Surf- und Beach-Style der hält.</p>
+      <a href="https://amzn.to/4qZDpnY" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+    <div class="product-card">
+      <img src="https://raw.githubusercontent.com/tamosique/tamosique-assets/main/wasserschuhe.png.png" alt="Wasserschuhe" class="product-img" loading="lazy">
+      <p class="product-name">Wasserschuhe</p>
+      <p class="product-desc">Schuhe für Strand, Yoga, Aqua, Surfen & Co. Ergonomisch, mit starker Traktion & dämpfender Sohle.</p>
+      <a href="https://amzn.to/4o0Lru7" target="_blank" rel="nofollow" class="product-link">Amazon</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── SERVICES ── -->
+<div class="services-section" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <h2 class="services-title">What I do</h2>
+      <p class="services-sub">
+        <strong>Tools I use. Systems I build.</strong><br>
+        Was hier nach Leichtigkeit aussieht, ist das Ergebnis von Klarheit, Strategie & smarten Systemen.<br>
+        Wenn du dir das auch wünschst — let's build it.
+      </p>
+    </div>
+    <div class="services-grid">
+      <a href="mailto:tamosique@moc-media.de?subject=Systemaufbau%20Start" class="service-item">
+        <span class="service-name">Build your System</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="mailto:tamosique@moc-media.de?subject=Affiliate%20Strategie%20Interesse" class="service-item">
+        <span class="service-name">Affiliate Strategy</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="mailto:tamosique@moc-media.de?subject=Automations%20und%20KI-Tools" class="service-item">
+        <span class="service-name">Automations & AI</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="mailto:tamosique@moc-media.de" class="service-item">
+        <span class="service-name">My Daily Tools</span>
+        <span class="service-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">tamosique</span>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/tamosique/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@tamosique" target="_blank">TikTok</a></li>
+    <li><a href="https://www.youtube.com/@tamosique" target="_blank">YouTube</a></li>
+    <li><a href="mailto:tanja_moser@yahoo.de">Impressum</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
